@@ -1,0 +1,40 @@
+// ignore_for_file: constant_identifier_names
+
+import 'package:flutter/material.dart';
+import '../models/location.dart';
+import '../styles.dart';
+
+const LocationTileHeight = 100.0;
+
+class LocationTile extends StatelessWidget {
+  final Location location;
+  final bool darkTheme;
+
+  // ignore: use_key_in_widget_constructors
+  const LocationTile(
+      {required this.location, required this.darkTheme});
+
+  @override
+  Widget build(BuildContext context) {
+    final title = location.name.toUpperCase();
+    final subTitle = location.user_itinerary_summary.toUpperCase();
+    final caption = location.tour_package_name.toUpperCase();
+    return Container(
+      padding: const EdgeInsets.all(0.0),
+      height: LocationTileHeight,
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: darkTheme
+                    ? Styles.locationTileTitleDark
+                    : Styles.locationTileTitleLight),
+            Text(subTitle, style: Styles.locationTileSubTitle),
+            Text(caption, style: Styles.locationTileCaption),
+          ]),
+    );
+  }
+}
