@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:testproject/mocks/mock_location.dart';
+import 'package:tourism_and_co/mocks/mock_location.dart';
 
 void main() {
   test('test fetchAny', () async {
